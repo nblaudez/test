@@ -1,0 +1,31 @@
+createFriend:
+    path: /friend
+    methods: PUT
+    controller: App\Controller\FriendController::newAction
+
+listFriends:
+    path: /friends
+    methods: GET
+    controller: App\Controller\FriendController::getAction
+
+setFriendshipValue:
+    path: /setfriendshipvalue/{name}/{value}
+    methods: GET
+    controller: App\Controller\FriendController::setFriendshipValueAction    
+
+eaten:
+    path: /eaten
+    methods: GET
+    controller: App\Controller\FriendController::eatenAction
+    
+callMonsterWithName:
+    path: /call-monster/{name}
+    methods: GET
+    controller: App\Controller\GameController::callMonsterAction
+
+callMonster:
+    path: /call-monster
+    methods: GET
+    controller: App\Controller\GameController::callMonsterAction
+
+    

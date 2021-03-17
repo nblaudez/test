@@ -1,0 +1,38 @@
+<h1>Create a friend</h1>
+
+<div class="main">
+  <div *ngIf="addedMessage != false">
+    {{addedMessage}}<br />
+    <a href="#" (click)="addedMessage = false">add a new</a>
+  </div>  
+  <form *ngIf="addedMessage == false">
+      <div>
+        <label>Name :</label>
+        <input type="text" name="name" [(ngModel)]="poppy.name" />
+      </div>
+      <div>
+        <label>Type :</label>
+        <select name="type" [(ngModel)]="poppy.type">
+          <option value="god">GOD</option>
+          <option value="unicorn">UNICORN</option>
+          <option value="hooman">HOOMAN</option>
+          <option value="noob">NOOB</option>
+        </select>        
+      </div>
+      <div>
+        <label>FriendshipValue :</label>
+        <input type="number" name="friendshipValue" [(ngModel)]="poppy.friendshipvalue" />
+      </div>
+      <div>
+        <label>Tags :</label>
+        <input type="text" name="tags" [(ngModel)]="newTag" /><button (click)="addTag()">add</button>
+        <div>
+          <ul>
+            <li *ngFor="let tag of poppy.tags">{{tag}}</li>
+          </ul>
+        </div>  
+      </div>
+      <button (click)="addFriend()">Add a friend</button>
+  </form>        
+</div>
+

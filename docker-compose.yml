@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      web-network:
+        aliases:
+          - mongo      
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: cl1ck34t
+
+  web:
+    build: apache-php 
+    ports:
+      - "8000:80"
+    depends_on:
+      - mongo  
+    volumes:
+      - './apache-php/000-default.conf:/etc/apache2/sites-enabled/app.conf'
+      - './src:/var/www/app'
+      - './apache-php/composer:/usr/bin/composer'
+    networks:
+      web-network:
+        aliases:
+          - apache-php      
+networks:
+  web-network:
+    driver: bridge

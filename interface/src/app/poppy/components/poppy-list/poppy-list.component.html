@@ -1,0 +1,19 @@
+<h2>Friends</h2>
+<div *ngIf="noFriend">{{messageNoFriend}}</div>
+<div *ngFor="let friend of friends">
+    <b>{{friend.name}}</b> ({{friend.type}}) - {{friend.friendshipValue}} 
+    [<span *ngFor="let tag of friend.tags"> {{tag}} </span> ]
+    <br />
+</div>   
+
+<br /><br />
+<h2>Eaten Friends</h2>
+<div *ngIf="noFriendEaten">{{messageNoFriendEaten}}</div>
+<div *ngFor="let friend of eatenfriends">
+    <b>{{friend.name}}</b> ({{friend.type}}) - {{friend.friendshipValue}} 
+    [<span *ngFor="let tag of friend.tags"> {{tag}} </span> ]
+    <br />
+</div>    
+
+
+
